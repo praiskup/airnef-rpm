@@ -74,6 +74,7 @@ install -m 755 wrapper %buildroot%_bindir/airnefcmd
 %files
 %doc
 %_bindir/*
+%dir %appdir
 %appdir/*.py
 %if %python == python3
 %appdir/__pycache__
@@ -81,6 +82,7 @@ install -m 755 wrapper %buildroot%_bindir/airnefcmd
 %appdir/*.pyo
 %appdir/*.pyc
 %endif
+%dir %appresdir
 %appresdir/*.ico
 %appresdir/*.gif
 %appresdir/*.xbm
