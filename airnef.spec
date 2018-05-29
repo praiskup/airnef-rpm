@@ -12,7 +12,7 @@
 Name:           airnef
 Version:        1.1
 Release:        1%{?dist}
-Summary:        Wireless download from your Nikon/Canon Camera!
+Summary:        Wireless download from your Nikon/Canon Camera
 
 License:        GPLv3
 URL:            http://www.testcams.com/airnef/
@@ -49,7 +49,6 @@ rm appresource/airnef.icns
 
 
 %install
-
 mkdir -p %buildroot%appdir
 for i in *.py *.pyw; do
     dest=${i/%pyw/py} # drop pyw suffixes
