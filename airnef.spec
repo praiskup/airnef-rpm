@@ -11,7 +11,7 @@
 
 Name:           airnef
 Version:        1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Wireless download from your Nikon/Canon Camera
 
 License:        GPLv3
@@ -43,6 +43,10 @@ rm airnefcmd_OSX_Frozen_Wrapper.py
 
 # TODO: ??
 rm appresource/airnef.icns
+
+for i in `grep -l -r '#!/usr/bin/env python'`; do
+    sed -i '1 s|#!/usr/bin/env python.*||g' "$i"
+done
 
 
 %build
@@ -89,5 +93,8 @@ install -m 755 wrapper %buildroot%_bindir/airnefcmd
 
 
 %changelog
+* Wed May 30 2018 Pavel Raiskup <praiskup@redhat.com> - 1.1-2
+- silent rpmdiff complaints about python shebangs (review rhbz#1583475)
+
 * Tue May 29 2018 Pavel Raiskup <praiskup@redhat.com> - 1.1-1
 - initial RPM packaging
